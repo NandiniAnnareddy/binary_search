@@ -1,0 +1,26 @@
+class Solution:
+    def countFreq(self, arr, target):
+        # code here
+        ans = 0
+        if target in arr:
+            low = 0
+            high = len(arr)-1
+            while(low <= high):
+                mid = (low+high)//2
+                if arr[mid] >= target:
+                    high = mid - 1
+                else:
+                    low = mid + 1
+            start = low
+            low = 0
+            high = len(arr)-1
+            while(low <= high):
+                mid = (low+high)//2
+                if arr[mid] > target:
+                    high = mid - 1
+                else:
+                    low = mid + 1
+            end = low - 1
+            return end - start + 1
+        return ans
+            
